@@ -20,6 +20,15 @@ const onSignUp = function (event) {
     .catch(ui.onError)
 }
 
+// event handler for sign in submit event
+const onSignIn = function (event) {
+  // prevent default refresh page
+  event.preventDefault()
+
+  console.log('test')
+}
+
 module.exports = {
-  onSignUp
+  onSignUp,
+  onSignIn
 }
