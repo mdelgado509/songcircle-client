@@ -44,8 +44,8 @@ const onChangePassword = function (event) {
 
   // call api
   api.changePassword(formData)
-    .then(() => console.log('sucess'))
-    .catch(() => console.log('error'))
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onError)
 }
 module.exports = {
   onSignUp,

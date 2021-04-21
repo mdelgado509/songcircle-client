@@ -25,6 +25,20 @@ const onSignInSuccess = function (response) {
   $('#option-header').show()
 }
 
+const onChangePasswordSuccess = function () {
+  // notify user of succesful password change
+  $('#message').text('You succesfully changed your password ' + store.user.email)
+  // reset field
+  $('#change-password').trigger('reset')
+
+  // hide change password
+  $('#change-password').hide()
+  // hide change password menu option
+  $('#show-change-password').show()
+  // show game header options
+  $('#option-header').show()
+}
+
 const onError = function () {
   // message user of error
   $('#message').text('Try again!')
@@ -34,5 +48,6 @@ const onError = function () {
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
+  onChangePasswordSuccess,
   onError
 }
