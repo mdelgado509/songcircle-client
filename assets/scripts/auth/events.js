@@ -25,7 +25,13 @@ const onSignIn = function (event) {
   // prevent default refresh page
   event.preventDefault()
 
-  console.log('test')
+  // extract data from form and store in a variable
+  const formData = getFormFields(event.target)
+
+  // call api
+  api.signIn(formData)
+    .then(() => console.log('success'))
+    .catch(() => console.log('error'))
 }
 
 module.exports = {
