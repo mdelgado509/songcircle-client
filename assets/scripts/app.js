@@ -10,6 +10,8 @@ const authEvents = require('./auth/events')
 // require('./example')
 
 $(() => {
+  // hide sign-in on app load
+  $('#sign-in').hide()
   // create event listener for sign up submit event
   $('#sign-up').on('submit', authEvents.onSignUp)
 })

@@ -1,5 +1,7 @@
 // import api request functions
 const api = require('./api')
+// import functions that update user interface on client request
+const ui = require('./ui')
 
 // import getFormFields function for sending JSON data to API
 const getFormFields = require('../../../lib/get-form-fields')
@@ -14,8 +16,8 @@ const onSignUp = function (event) {
 
   // call api
   api.signUp(formData)
-    .then(() => console.log('success'))
-    .catch(() => console.log('error'))
+    .then(ui.onSignUpSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {
