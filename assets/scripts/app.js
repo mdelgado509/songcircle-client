@@ -38,5 +38,5 @@ $(() => {
   // create event listener for change password submit event
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create event listener for sign out on click event
-  $('#sign-out').on('click', () => console.log('test'))
+  $('#sign-out').on('click', authEvents.onSignOut)
 })

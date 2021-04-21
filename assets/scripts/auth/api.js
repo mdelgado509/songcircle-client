@@ -21,11 +21,11 @@ const signUp = function (formData) {
 const signIn = function (formData) {
   // make api call
   return $.ajax({
-    // set method to create user
+    // set method to sign in user
     method: 'POST',
     // specify url
     url: config.apiUrl + '/sign-in',
-    // send the data along to create our user
+    // send the data along to sign in our user
     data: formData
   })
 }
@@ -40,7 +40,22 @@ const changePassword = function (formData) {
     url: config.apiUrl + '/change-password/',
     // send the formData along to update user password
     data: formData,
-    // verify user login with token
+    // verify user with token
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+// call api to sign out user
+const signOut = function () {
+  // make ajax api call
+  return $.ajax({
+    // set method to sign Out
+    method: 'DELETE',
+    // Call url to sign out
+    url: config.apiUrl + '/sign-out/',
+    // verify user with token
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -50,5 +65,6 @@ const changePassword = function (formData) {
 module.exports = {
   signUp,
   signIn,
-  changePassword
+  changePassword,
+  signOut
 }

@@ -47,8 +47,20 @@ const onChangePassword = function (event) {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onError)
 }
+
+// event handler for sign out on click event
+const onSignOut = function (event) {
+  // prevent default refresh page
+  event.preventDefault()
+
+  // call api
+  api.signOut()
+    .then(() => console.log('success'))
+    .catch(() => console.log('error'))
+}
 module.exports = {
   onSignUp,
   onSignIn,
-  onChangePassword
+  onChangePassword,
+  onSignOut
 }
