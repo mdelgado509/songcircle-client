@@ -36,8 +36,5 @@ $(() => {
   // create event listener for sign in submit event
   $('#sign-in').on('submit', authEvents.onSignIn)
   // create event listener for change password submit event
-  $('#change-password').on('submit', (event) => {
-    event.preventDefault()
-    console.log('test')
-  })
+  $('#change-password').on('submit', authEvents.onChangePassword)
 })

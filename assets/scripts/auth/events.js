@@ -34,7 +34,21 @@ const onSignIn = function (event) {
     .catch(ui.onError)
 }
 
+// event handler for change password submit event
+const onChangePassword = function (event) {
+  // prevent default refresh page
+  event.preventDefault()
+
+  // extract data from form and store in a variable
+  const formData = getFormFields(event.target)
+
+  // call api
+  api.changePassword(formData)
+    .then(() => console.log('sucess'))
+    .catch(() => console.log('error'))
+}
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword
 }

@@ -1,6 +1,9 @@
 // import apiUrl from config file
 const config = require('../config')
 
+// import object to extract API sign in response data (token)
+const store = require('../store')
+
 // call api to create a new user
 const signUp = function (formData) {
   // make api call
@@ -27,7 +30,25 @@ const signIn = function (formData) {
   })
 }
 
+// call api to change user password
+const changePassword = function (formData) {
+  // make ajax api call
+  return $.ajax({
+    // set method to change password
+    method: 'PATCH',
+    // Call URL to change password
+    url: config.apiUrl + '/change-password/',
+    // send the formData along to update user password
+    data: formData,
+    // verify user login with token
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  changePassword
 }
