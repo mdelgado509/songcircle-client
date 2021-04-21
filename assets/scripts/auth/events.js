@@ -30,8 +30,8 @@ const onSignIn = function (event) {
 
   // call api
   api.signIn(formData)
-    .then(() => console.log('success'))
-    .catch(() => console.log('error'))
+    .then(ui.onSignInSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {
