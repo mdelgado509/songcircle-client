@@ -25,7 +25,7 @@ $(() => {
     // reset user messaging
     $('#message').text('')
     // hide change password menu option
-    $('#show-change-password').hide()
+    $('#option-header').hide()
     // show change password
     $('#change-password').show()
   })
@@ -37,4 +37,6 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   // create event listener for change password submit event
   $('#change-password').on('submit', authEvents.onChangePassword)
+  // create event listener for sign out on click event
+  $('#sign-out').on('click', () => console.log('test'))
 })

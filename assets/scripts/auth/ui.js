@@ -33,8 +33,8 @@ const onChangePasswordSuccess = function () {
 
   // hide change password
   $('#change-password').hide()
-  // hide change password menu option
-  $('#show-change-password').show()
+  // // hide change password menu option
+  // $('#show-change-password').show()
   // show game header options
   $('#option-header').show()
 }
