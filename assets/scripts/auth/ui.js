@@ -39,6 +39,18 @@ const onChangePasswordSuccess = function () {
   $('#option-header').show()
 }
 
+const onSignOutSuccess = function () {
+  // notify user of successful sign out
+  $('#message').text('You succesfully logged out ' + store.user.email)
+  // erase user store info
+  store.user = null
+
+  // hide option header
+  $('#option-header').hide()
+  // show sign up
+  $('#sign-up').show()
+}
+
 const onError = function () {
   // message user of error
   $('#message').text('Try again!')
@@ -49,5 +61,6 @@ module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,
+  onSignOutSuccess,
   onError
 }

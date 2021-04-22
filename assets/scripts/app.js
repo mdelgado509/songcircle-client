@@ -14,10 +14,14 @@ $(() => {
   $('#user-exists').on('click', () => {
     $('#sign-up').hide()
     $('#sign-in').show()
+    // reset user messaging
+    $('#message').text('')
   })
   $('#new-user').on('click', () => {
     $('#sign-in').hide()
     $('#sign-up').show()
+    // reset user messaging
+    $('#message').text('')
   })
 
   // this event shows the change password view
