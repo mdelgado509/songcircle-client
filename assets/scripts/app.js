@@ -6,6 +6,9 @@
 // require auth event handlers
 const authEvents = require('./auth/events')
 
+// require song event handlers
+const songEvents = require('./songs/events')
+
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -56,8 +59,5 @@ $(() => {
 
   // SONGS EVENT LISTENERS
   // create event listener for share a song submit event
-  $('#share-song').on('submit', (event) => {
-    event.preventDefault()
-    console.log('test')
-  })
+  $('#share-song').on('submit', songEvents.onShareSong)
 })
