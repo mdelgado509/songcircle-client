@@ -4,9 +4,6 @@
 // import object to store API sign in response data (token)
 const store = require('../store')
 
-// import api request functions
-const api = require('./api')
-
 const onShareSongSuccess = function (response) {
   // clear form fields for share song
   $('#share-song').trigger('reset')
@@ -40,14 +37,24 @@ const onMySongsSuccess = function (response) {
 }
 
 const onDeleteSongSuccess = function () {
-  console.log(store.delete.id)
   // remove song from feed
   document.getElementById(`${store.delete.id}`).remove()
-  // $('.feed').remove(`#${store.delete.id}`)
   // delete temporary id store
   store.delete.id = null
   // send success message
   $('#message').text('Song successfully removed!')
+}
+
+const onUpdateSongSuccess = function () {
+  store.update.id = null
+
+  // show option header
+  $('#option-header').show()
+  // hide update song
+  $('#update-song').hide()
+
+  // send success message
+  $('#message').text('Song successfully updated!')
 }
 
 const onError = function () {
@@ -59,5 +66,6 @@ module.exports = {
   onShareSongSuccess,
   onMySongsSuccess,
   onDeleteSongSuccess,
+  onUpdateSongSuccess,
   onError
 }

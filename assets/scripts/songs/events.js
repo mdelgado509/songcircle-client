@@ -3,9 +3,6 @@ const api = require('./api')
 // import functions that update user interface on client request
 const ui = require('./ui')
 
-// import store to store temporary data
-const store = require('../store')
-
 // import getFormFields function for sending JSON data to API
 const getFormFields = require('../../../lib/get-form-fields')
 
@@ -50,7 +47,18 @@ const onDeleteSong = function (event) {
 
 // handle update song event submit
 const onUpdateSong = function (event) {
-  //
+  // prevent default refresh page
+  event.preventDefault()
+
+  // extract form data
+  const formData = getFormFields(event.target)
+  // extract song id
+  const id = event.target.id
+
+  // send song id with api call to delete song
+  api.updateSong(formData, id)
+    .then(ui.onUpdateSongSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {

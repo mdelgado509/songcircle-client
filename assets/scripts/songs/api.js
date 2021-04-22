@@ -40,7 +40,6 @@ const mySongs = function () {
 const deleteSong = function (id) {
   // store id of song to be deleted
   store.delete = { id: id }
-  console.log(store.delete.id)
   // make api call
   return $.ajax({
     // set method to DELETE to delete a song
@@ -54,8 +53,25 @@ const deleteSong = function (id) {
   })
 }
 
+// call api to update a song
+const updateSong = function (formData) {
+  // make api call
+  return $.ajax({
+    // set method to PATCH to update a song
+    method: 'PATCH',
+    // specify url and song id extension
+    url: config.apiUrl + '/songs/' + store.update.id,
+    // pass form data
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   shareSong,
   mySongs,
-  deleteSong
+  deleteSong,
+  updateSong
 }

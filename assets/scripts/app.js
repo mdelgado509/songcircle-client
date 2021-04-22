@@ -71,6 +71,8 @@ $(() => {
     // data cell index = song.owner
     const owner = $(event.target).data('cell-index')
     if (owner === store.user._id) {
+      // store id of song to be updated
+      store.update = { id: event.target.id }
       // reset user messaging
       $('#message').text('')
       // hide menu options
@@ -92,7 +94,5 @@ $(() => {
   // create event listener to delete a song
   $(document).on('click', '.delete', songEvents.onDeleteSong)
   // create event listener for update song form submit event
-  $('#update-song').on('submit', () => console.log('test'))
-
-
+  $('#update-song').on('submit', songEvents.onUpdateSong)
 })
