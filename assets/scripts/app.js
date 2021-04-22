@@ -64,16 +64,7 @@ $(() => {
     // show share song form fields
     $('#share-song').show()
   })
-
-  // SONGS EVENT LISTENERS
-  // create event listener for share a song submit event
-  $('#share-song').on('submit', songEvents.onShareSong)
-  // create event listener to show my songs
-  $('#my-songs').on('click', songEvents.onMySongs)
-  // create event listener to delete a song
-  $(document).on('click', '.delete', songEvents.onDeleteSong)
-
-  // create event listener to check user auth and update a song
+  // create event listener to check user auth to update a song
   $(document).on('click', '.update', (event) => {
     // prevent default refresh page
     event.preventDefault()
@@ -92,4 +83,16 @@ $(() => {
       $('#message').text('You have to own a post to delete it!')
     }
   })
+
+  // SONGS EVENT LISTENERS
+  // create event listener for share a song submit event
+  $('#share-song').on('submit', songEvents.onShareSong)
+  // create event listener to show my songs
+  $('#my-songs').on('click', songEvents.onMySongs)
+  // create event listener to delete a song
+  $(document).on('click', '.delete', songEvents.onDeleteSong)
+  // create event listener for update song form submit event
+  $('#update-song').on('submit', () => console.log('test'))
+
+
 })
