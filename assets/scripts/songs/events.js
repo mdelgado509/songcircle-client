@@ -48,8 +48,14 @@ const onDeleteSong = function (event) {
     .catch(ui.onError)
 }
 
+// handle update song event submit
+const onUpdateSong = function (event) {
+  //
+}
+
 module.exports = {
   onShareSong,
   onMySongs,
-  onDeleteSong
+  onDeleteSong,
+  onUpdateSong
 }

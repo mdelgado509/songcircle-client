@@ -9,6 +9,10 @@ const authEvents = require('./auth/events')
 // require song event handlers
 const songEvents = require('./songs/events')
 
+// import object to store API sign in response data (token)
+
+const store = require('./store')
+
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -68,10 +72,24 @@ $(() => {
   $('#my-songs').on('click', songEvents.onMySongs)
   // create event listener to delete a song
   $(document).on('click', '.delete', songEvents.onDeleteSong)
-  // create event listener to update a song
+
+  // create event listener to check user auth and update a song
   $(document).on('click', '.update', (event) => {
     // prevent default refresh page
     event.preventDefault()
-    console.log(event.target.id)
+    // data cell index = song.owner
+    const owner = $(event.target).data('cell-index')
+    if (owner === store.user._id) {
+      // reset user messaging
+      $('#message').text('')
+      // hide menu options
+      $('#option-header').hide()
+      // hide feed
+      $('.feed').hide()
+      // show update song
+      $('#update-song').show()
+    } else {
+      $('#message').text('You have to own a post to delete it!')
+    }
   })
 })
