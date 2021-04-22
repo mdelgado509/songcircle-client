@@ -35,6 +35,8 @@ $(() => {
     $('#option-header').hide()
     // hide songs elements
     $('.songs').hide()
+    // hide feed
+    $('.feed').hide()
     // show change password
     $('#change-password').show()
   })
@@ -53,6 +55,8 @@ $(() => {
   $('#show-share-song').on('click', () => {
     // reset user messaging
     $('#message').text('')
+    // hide feed
+    $('.feed').hide()
     // show share song form fields
     $('#share-song').show()
   })
