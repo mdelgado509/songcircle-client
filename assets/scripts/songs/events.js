@@ -20,6 +20,7 @@ const onShareSong = function (event) {
     .catch(ui.onError)
 }
 
+// handles my songs event click
 const onMySongs = function (event) {
   // prevent default refresh
   event.preventDefault()
@@ -30,7 +31,22 @@ const onMySongs = function (event) {
     .catch(ui.onError)
 }
 
+// handles delete song event click
+const onDeleteSong = function (event) {
+  // prevent default refresh page
+  event.preventDefault()
+
+  // extract song id
+  const id = event.target.id
+
+  // send song id with api call to delete song
+  api.deleteSong(id)
+    .then(() => console.log('success'))
+    .catch(() => console.log('error'))
+}
+
 module.exports = {
   onShareSong,
   onMySongs,
+  onDeleteSong
 }

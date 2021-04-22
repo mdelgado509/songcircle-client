@@ -36,7 +36,23 @@ const mySongs = function () {
   })
 }
 
+// call api to delete a song
+const deleteSong = function (id) {
+  // make api call
+  return $.ajax({
+    // set method to DELETE to delete a song
+    method: 'DELETE',
+    // specify url and song id extension
+    url: config.apiUrl + '/songs/' + id,
+    // verify user with token
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   shareSong,
-  mySongs
+  mySongs,
+  deleteSong
 }

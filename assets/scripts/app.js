@@ -67,11 +67,7 @@ $(() => {
   // create event listener to show my songs
   $('#my-songs').on('click', songEvents.onMySongs)
   // create event listener to delete a song
-  $(document).on('click', '.delete', (event) => {
-    // prevent default refresh page
-    event.preventDefault()
-    console.log(event.target.id)
-  })
+  $(document).on('click', '.delete', songEvents.onDeleteSong)
   // create event listener to update a song
   $(document).on('click', '.update', (event) => {
     // prevent default refresh page
