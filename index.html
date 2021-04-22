@@ -18,6 +18,9 @@
       <header id="option-header" class="hidden">
         <ul class="nav justify-content-center">
           <li class="nav-item">
+            <a id="show-share-song" class="nav-link" href="#">Share Song</a>
+          </li>
+          <li class="nav-item">
             <a id="show-change-password" class="nav-link" href="#">Change Password</a>
           </li>
           <li class="nav-item">
@@ -55,6 +58,15 @@
           <div class="message-board">
             <p id="message"></p>
           </div>
+        </section>
+        <section>
+          <form id="share-song" class="form-signin songs hidden">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign Up</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal">What are you listening to?</h1>
+            <input name="song[title]" type="text" class="form-control" placeholder="Title" required autofocus>
+            <input name="song[artist]" type="text" class="form-control" placeholder="Artist" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Share Song</button>
+          </form>
         </section>
       </main>
     </body>

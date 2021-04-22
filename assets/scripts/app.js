@@ -30,6 +30,8 @@ $(() => {
     $('#message').text('')
     // hide change password menu option
     $('#option-header').hide()
+    // hide songs elements
+    $('.songs').hide()
     // show change password
     $('#change-password').show()
   })
@@ -43,4 +45,19 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create event listener for sign out on click event
   $('#sign-out').on('click', authEvents.onSignOut)
+
+  // event listener to show share song form
+  $('#show-share-song').on('click', () => {
+    // reset user messaging
+    $('#message').text('')
+    // show share song form fields
+    $('#share-song').show()
+  })
+
+  // SONGS EVENT LISTENERS
+  // create event listener for share a song submit event
+  $('#share-song').on('submit', (event) => {
+    event.preventDefault()
+    console.log('test')
+  })
 })

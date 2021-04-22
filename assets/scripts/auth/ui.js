@@ -47,6 +47,8 @@ const onSignOutSuccess = function () {
 
   // hide option header
   $('#option-header').hide()
+  // hide songs elements
+  $('.songs').hide()
   // show sign up
   $('#sign-up').show()
 }
