@@ -4,6 +4,9 @@
 // import object to store API sign in response data (token)
 const store = require('../store')
 
+// import api request functions
+const api = require('./api')
+
 const onShareSongSuccess = function (response) {
   // clear form fields for share song
   $('#share-song').trigger('reset')
@@ -30,11 +33,8 @@ const onMySongsSuccess = function (response) {
 
   // use a forloop to append to the feed
   for (let i = mySongs.length - 1; i >= 0; i--) {
-    console.log(mySongs)
     const song = mySongs[i]
-    console.log(song)
-    const message = `<p>${store.user.email} was listening to ${song.title} by ${song.artist}</p>`
-    console.log(message)
+    const message = `<p>${store.user.email} was listening to ${song.title} by ${song.artist} <button id=${song._id} class="btn btn-sm btn-success update" type="submit">Update</button><button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button></p>`
     $('.feed').append(message)
   }
 }

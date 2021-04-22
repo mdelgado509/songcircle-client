@@ -32,5 +32,5 @@ const onMySongs = function (event) {
 
 module.exports = {
   onShareSong,
-  onMySongs
+  onMySongs,
 }
