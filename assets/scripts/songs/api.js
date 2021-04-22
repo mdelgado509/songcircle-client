@@ -38,6 +38,9 @@ const mySongs = function () {
 
 // call api to delete a song
 const deleteSong = function (id) {
+  // store id of song to be deleted
+  store.delete = { id: id }
+  console.log(store.delete.id)
   // make api call
   return $.ajax({
     // set method to DELETE to delete a song

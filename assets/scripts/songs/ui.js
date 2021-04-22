@@ -34,9 +34,20 @@ const onMySongsSuccess = function (response) {
   // use a forloop to append to the feed
   for (let i = mySongs.length - 1; i >= 0; i--) {
     const song = mySongs[i]
-    const message = `<p>${store.user.email} was listening to ${song.title} by ${song.artist} <button id=${song._id} class="btn btn-sm btn-success update" type="submit">Update</button><button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button></p>`
+    const message = `<p id=${song._id} >${store.user.email} was listening to ${song.title} by ${song.artist} <button id=${song._id} class="btn btn-sm btn-success update" type="submit">Update</button><button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button></p>`
     $('.feed').append(message)
   }
+}
+
+const onDeleteSongSuccess = function () {
+  console.log(store.delete.id)
+  // remove song from feed
+  document.getElementById(`${store.delete.id}`).remove()
+  // $('.feed').remove(`#${store.delete.id}`)
+  // delete temporary id store
+  store.delete.id = null
+  // send success message
+  $('#message').text('Song successfully removed!')
 }
 
 const onError = function () {
@@ -47,5 +58,6 @@ const onError = function () {
 module.exports = {
   onShareSongSuccess,
   onMySongsSuccess,
+  onDeleteSongSuccess,
   onError
 }

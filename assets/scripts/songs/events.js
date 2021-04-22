@@ -3,6 +3,9 @@ const api = require('./api')
 // import functions that update user interface on client request
 const ui = require('./ui')
 
+// import store to store temporary data
+const store = require('../store')
+
 // import getFormFields function for sending JSON data to API
 const getFormFields = require('../../../lib/get-form-fields')
 
@@ -41,8 +44,8 @@ const onDeleteSong = function (event) {
 
   // send song id with api call to delete song
   api.deleteSong(id)
-    .then(() => console.log('success'))
-    .catch(() => console.log('error'))
+    .then(ui.onDeleteSongSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {
