@@ -61,8 +61,5 @@ $(() => {
   // create event listener for share a song submit event
   $('#share-song').on('submit', songEvents.onShareSong)
   // create event listener to show my songs
-  $('#my-songs').on('click', (event) => {
-    event.preventDefault()
-    console.log('test')
-  })
+  $('#my-songs').on('click', songEvents.onMySongs)
 })

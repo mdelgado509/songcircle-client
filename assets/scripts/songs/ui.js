@@ -10,6 +10,11 @@ const onShareSongSuccess = function (response) {
   $('#message').text(store.user.email + ' was listening to ' + response.song.title + ' by ' + response.song.artist)
 }
 
+const onMySongsSuccess = function (response) {
+  const mySongs = response.songs.filter(song => song.owner === store.user._id)
+  console.log(mySongs)
+}
+
 const onError = function () {
   // message user of error
   $('#message').text('Try again!')
@@ -17,5 +22,6 @@ const onError = function () {
 
 module.exports = {
   onShareSongSuccess,
+  onMySongsSuccess,
   onError
 }

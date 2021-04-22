@@ -21,6 +21,22 @@ const shareSong = function (formData) {
   })
 }
 
+// call api to index songs
+const mySongs = function () {
+  // make api call
+  return $.ajax({
+    // set method to view my songs
+    method: 'GET',
+    // specify url
+    url: config.apiUrl + '/songs',
+    // verify user with token
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  shareSong
+  shareSong,
+  mySongs
 }

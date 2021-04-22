@@ -20,6 +20,17 @@ const onShareSong = function (event) {
     .catch(ui.onError)
 }
 
+const onMySongs = function (event) {
+  // prevent default refresh
+  event.preventDefault()
+
+  // call api
+  api.mySongs()
+    .then(ui.onMySongsSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
-  onShareSong
+  onShareSong,
+  onMySongs
 }
