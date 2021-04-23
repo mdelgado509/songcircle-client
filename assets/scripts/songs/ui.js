@@ -10,7 +10,7 @@ const onShareSongSuccess = function (response) {
   // hide share song form
   $('.songs').hide()
   // message user their post
-  $('#message').text(store.user.email + ' was listening to ' + response.song.title + ' by ' + response.song.artist)
+  $('#message').text('Thanks for sharing!')
 }
 
 const onMySongsSuccess = function (response) {
@@ -31,14 +31,19 @@ const onMySongsSuccess = function (response) {
   // use a forloop to append to the feed
   for (let i = mySongs.length - 1; i >= 0; i--) {
     const song = mySongs[i]
+    const date = new Date(song.createdAt)
+    const timestamp = date.toDateString() + ', ' + date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric' })
     const message = `
-    <div class="row">
-      <div class="col-lg-10">
-        <p id=${song._id} class="text-left">${store.user.email} was listening to ${song.title} by ${song.artist}</p>
+    <div id=${song._id} class="row">
+      <div class="col-lg-3">
+        <p class="date text-muted text-justify">${timestamp}</p>
+      </div>
+      <div class="col-lg-7">
+        <p id=${song._id} class="text-justify">${store.user.email} was listening to ${song.title} by ${song.artist}</p>
       </div>
       <div class="col-lg-2">
-        <button id=${song._id} data-cell-index=${song.owner} class="btn btn-sm btn-success update" type="submit">Update</button>
-        <button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button>
+        <button id=${song._id} data-cell-index=${song.owner} class="btn btn-sm btn-outline-success update" type="submit">Update</button>
+        <button id=${song._id} class="btn btn-sm btn-outline-danger delete" type="submit">Delete</button>
       </div>
     </div>
     `
