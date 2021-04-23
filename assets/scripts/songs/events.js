@@ -61,9 +61,21 @@ const onUpdateSong = function (event) {
     .catch(ui.onError)
 }
 
+// handle home click event show all songs
+const onAllSongs = function (event) {
+  // prevent default refresh page
+  event.preventDefault()
+
+  // call api
+  api.mySongs()
+    .then(ui.onAllSongsSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onShareSong,
   onMySongs,
   onDeleteSong,
-  onUpdateSong
+  onUpdateSong,
+  onAllSongs
 }

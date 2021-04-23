@@ -1,6 +1,11 @@
 // this file contains API response handler functions
 // it will update the DOM to change the user interface
 
+// import api song request functions
+const api = require('../songs/api')
+// import functions that update user interface on client request for songs
+const ui = require('../songs/ui')
+
 // import object to store API sign in response data (token)
 
 const store = require('../store')
@@ -23,6 +28,11 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
   $('#option-header').show()
+
+  // call api
+  api.mySongs()
+    .then(ui.onAllSongsSuccess)
+    .catch(ui.onError)
 }
 
 const onChangePasswordSuccess = function () {

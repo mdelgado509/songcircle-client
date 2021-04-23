@@ -95,4 +95,7 @@ $(() => {
   $(document).on('click', '.delete', songEvents.onDeleteSong)
   // create event listener for update song form submit event
   $('#update-song').on('submit', songEvents.onUpdateSong)
+
+  // create event listener for home button
+  $('#home').on('click', songEvents.onAllSongs)
 })
