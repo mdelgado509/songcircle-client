@@ -37,7 +37,7 @@ const changePassword = function (formData) {
     // set method to change password
     method: 'PATCH',
     // Call URL to change password
-    url: config.apiUrl + '/change-password/',
+    url: config.apiUrl + '/change-password?',
     // send the formData along to update user password
     data: formData,
     // verify user with token

@@ -46,7 +46,10 @@ const onDeleteSongSuccess = function () {
 }
 
 const onUpdateSongSuccess = function () {
+  // remove temp id store
   store.update.id = null
+  // clear fields
+  $('#update-song').trigger('reset')
 
   // show option header
   $('#option-header').show()
