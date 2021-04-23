@@ -31,7 +31,17 @@ const onMySongsSuccess = function (response) {
   // use a forloop to append to the feed
   for (let i = mySongs.length - 1; i >= 0; i--) {
     const song = mySongs[i]
-    const message = `<p id=${song._id} >${store.user.email} was listening to ${song.title} by ${song.artist} <button id=${song._id} data-cell-index=${song.owner} class="btn btn-sm btn-success update" type="submit">Update</button><button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button></p>`
+    const message = `
+    <div class="row">
+      <div class="col-lg-10">
+        <p id=${song._id} class="text-left">${store.user.email} was listening to ${song.title} by ${song.artist}</p>
+      </div>
+      <div class="col-lg-2">
+        <button id=${song._id} data-cell-index=${song.owner} class="btn btn-sm btn-success update" type="submit">Update</button>
+        <button id=${song._id} class="btn btn-sm btn-danger delete" type="submit">Delete</button>
+      </div>
+    </div>
+    `
     $('.feed').append(message)
   }
 }
