@@ -37,7 +37,7 @@ const onMySongsSuccess = function (response) {
         <p class="date text-muted text-justify">${timestamp}</p>
       </div>
       <div class="col-lg-7">
-        <p id=${song._id} class="text-justify">${store.user.email} played <b>${song.title}</b> by <em>${song.artist}</em></p>
+        <p id=${song._id} class="text-justify">You played <b>${song.title}</b> by <em>${song.artist}</em></p>
       </div>
       <div class="col-lg-2">
         <button id=${song._id} data-cell-index=${song.owner} class="btn btn-sm btn-outline-success update" type="submit">Update</button>
@@ -97,7 +97,7 @@ const onAllSongsSuccess = function (response) {
         <p class="date text-muted text-justify">${timestamp}</p>
       </div>
       <div class="col-lg-9">
-        <p id=${song._id} class="text-justify">Someone played <b>${song.title}</b> by <em>${song.artist}</em></p>
+        <p id=${song._id} class="text-justify">${song.ownerEmail} played <b>${song.title}</b> by <em>${song.artist}</em></p>
       </div>
     </div>
     `

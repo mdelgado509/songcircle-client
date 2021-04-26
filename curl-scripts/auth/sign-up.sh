@@ -1,5 +1,5 @@
 # EMAIL=mdelgado509@gmail.com PASSWORD=a sh curl-scripts/auth/sign-up.sh
-API="http://localhost:4741"
+API="https://pacific-wave-42861.herokuapp.com"
 URL_PATH="/sign-up"
 
 curl "${API}${URL_PATH}" \
