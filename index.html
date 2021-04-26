@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Songcircle</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <h1 class="h1 text-center main-header">Songcirlce</h1>
+      </header>
+      <header id="option-header" class="hidden">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a id="home" class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="show-share-song" class="nav-link" href="#">Share Song</a>
+          </li>
+          <li class="nav-item">
+            <a id="my-songs" class="nav-link" href="#">My Songs</a>
+          </li>
+          <li class="nav-item">
+            <a id="show-change-password" class="nav-link" href="#">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a id="sign-out" class="nav-link" href="#">Sign Out</a>
+          </li>
+        </ul>
+      </header>
+      <main>
+        <section>
+          <form id="sign-up" class="form-signin auth">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign Up</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">Please sign up</h1>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="credentials[email]" type="email" class="form-control" placeholder="Email address" required autofocus>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Password confirmation" required>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <p class="text-center">Already have an account? Sign in <a id="user-exists" href="#">here</a>.</p>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form id="sign-in" class="form-signin auth hidden">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign In</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="credentials[email]" type="email" class="form-control" placeholder="Email address" required autofocus>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <p class="text-center">Don't have an account? Sign up <a id="new-user" href="#">here</a>.</p>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form id="change-password" class="form-signin auth hidden">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign In</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">Please fill out the forms</h1>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="passwords[old]" type="password" class="form-control" placeholder="Old password" required autofocus>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="passwords[new]" type="password" class="form-control" placeholder="New password" required>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </section>
+        <section>
+          <div class="message-board text-center">
+            <p id="message"></p>
+          </div>
+        </section>
+        <section>
+          <div class="container feed">
+          </div>
+        </section>
+        <section>
+          <form id="share-song" class="form-signin songs hidden">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign In</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">What are you listening to?</h1>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="song[title]" type="text" class="form-control" placeholder="Title" required autofocus>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="song[artist]" type="text" class="form-control" placeholder="Artist" required>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Share Song</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form id="update-song" class="form-signin songs hidden">
+            <!-- <h1 class="h1 mb-3 font-weight-normal text-center">Sign In</h1> -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">Please update your song below</h1>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="song[title]" type="text" class="form-control" placeholder="Title" autofocus>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <input name="song[artist]" type="text" class="form-control" placeholder="Artist">
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Update Song</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </main>
+    </body>
+</html>
