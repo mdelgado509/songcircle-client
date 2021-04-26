@@ -6,6 +6,10 @@ const ui = require('./ui')
 // import getFormFields function for sending JSON data to API
 const getFormFields = require('../../../lib/get-form-fields')
 
+// import object to store API sign in response data (token)
+
+const store = require('../store')
+
 // handle listener event for share song submit action
 const onShareSong = function (event) {
   // prevent default refresh
@@ -72,10 +76,26 @@ const onAllSongs = function (event) {
     .catch(ui.onError)
 }
 
+// handles user songs event click
+const onUserSongs = function (event) {
+  // prevent default refresh
+  event.preventDefault()
+
+  // extract user id
+  store.username = { id: $(event.target).data('cell-index') }
+  console.log(store.username.id)
+
+  // call api
+  api.mySongs()
+    .then(ui.onUserSongsSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onShareSong,
   onMySongs,
   onDeleteSong,
   onUpdateSong,
-  onAllSongs
+  onAllSongs,
+  onUserSongs
 }

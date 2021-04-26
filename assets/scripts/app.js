@@ -98,4 +98,6 @@ $(() => {
 
   // create event listener for home button
   $('#home').on('click', songEvents.onAllSongs)
+  // create event listener for user name click event
+  $(document).on('click', '#user-name', songEvents.onUserSongs)
 })

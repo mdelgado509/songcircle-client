@@ -97,6 +97,41 @@ const onAllSongsSuccess = function (response) {
         <p class="date text-muted text-justify">${timestamp}</p>
       </div>
       <div class="col-lg-9">
+        <p id=${song._id} class="text-justify"><a id="user-name" data-cell-index=${song.owner} href="#">${song.ownerEmail}</a> played <b>${song.title}</b> by <em>${song.artist}</em></p>
+      </div>
+    </div>
+    `
+    $('.feed').append(message)
+  }
+}
+
+const onUserSongsSuccess = function (response) {
+  // clear user messaging
+  $('#message').text('')
+  // clear feed
+  $('.feed').empty()
+  // show feed
+  $('.feed').show()
+  // hide share song form fields
+  $('#share-song').hide()
+
+  // filter songs based on user id
+  const userSongs = response.songs.filter(song => song.owner === store.username.id)
+
+  // reset username.id
+  store.username.id = null
+
+  // use a forloop to append to the feed
+  for (let i = userSongs.length - 1; i >= 0; i--) {
+    const song = userSongs[i]
+    const date = new Date(song.createdAt)
+    const timestamp = date.toDateString() + ', ' + date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric' })
+    const message = `
+    <div id=${song._id} class="row">
+      <div class="col-lg-3">
+        <p class="date text-muted text-justify">${timestamp}</p>
+      </div>
+      <div class="col-lg-7">
         <p id=${song._id} class="text-justify">${song.ownerEmail} played <b>${song.title}</b> by <em>${song.artist}</em></p>
       </div>
     </div>
@@ -116,5 +151,6 @@ module.exports = {
   onDeleteSongSuccess,
   onUpdateSongSuccess,
   onAllSongsSuccess,
+  onUserSongsSuccess,
   onError
 }
