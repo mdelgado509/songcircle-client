@@ -83,7 +83,6 @@ const onUserSongs = function (event) {
 
   // extract user id
   store.username = { id: $(event.target).data('cell-index') }
-  console.log(store.username.id)
 
   // call api
   api.mySongs()
