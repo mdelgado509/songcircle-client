@@ -1,5 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
+// @font-face {
+//   font-family: 'Antonio';
+//   src: url('public/Antonio/static/Antonio-Regular.ttf') format('truetype');
+// }
+
 .form-signin {
   width: 75%;
   margin: 0 auto;
@@ -10,5 +15,7 @@
 }
 
 .main-header {
-  padding-top: 1%
+  // font-family: 'Antonio', sans-serif;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
